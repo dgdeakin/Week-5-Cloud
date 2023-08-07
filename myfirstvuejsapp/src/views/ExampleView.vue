@@ -22,32 +22,22 @@ function removeItem(item) {
 
 </script>
 
-
 <template>
     <div>
     <h1>My Shopping List</h1>
     <input type="text" v-model="shoppingitem">
     <button class="buttonstyle" @click="addItem">Add Item</button>
     <ol>
-
         <li v-for="i in shoppinglist" :key="i.id">
+        <input type="checkbox" v-model="i.shopped">
 
-        {{ i.item }}
-
+        <span :class="{done: i.shopped}"> {{ i.item }}</span>
+       
         <button @click="removeItem(i)">X</button>
-            
-
         </li>
-
     </ol>
-
-
 </div>
-
-
-
 </template>
-
 
 <style scoped>
 .divstyle {
